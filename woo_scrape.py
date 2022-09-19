@@ -2,15 +2,13 @@ from requests_html import HTMLSession
 import csv
 import time
 
-# CATEGORY = 'single category'
-
 def main(category):
     s = HTMLSession()
     
-    # TODO CHANGE URL
-    url = f'https://www.liteglo.co.za/product-category/{category}/?product_count=144'
+    # TODO: CHANGE URL
+    url = f'https://www.your-url.com/product-category/{category}/?product_count=144'
 
-    def get_links(url):  # sourcery skip: inline-immediately-returned-variable
+    def get_links(url):
         r = s.get(url)
         # Selector for an individual product item
         items = r.html.find('div.fusion-product-wrapper')
@@ -27,6 +25,7 @@ def main(category):
         description = r.html.find('div.fusion-content-tb ul')[0].text
         image = r.html.find('img.wp-post-image')[0].attrs['data-srcset']
         image = image.split(',')[-1][:-5]
+        # TODO: Uncomment the lines below if you need tags and sku's
         # tag = r.html.find('a[rel=tag]', first=True).full_text
         # sku = r.html.find('span.sku', first=True).full_text
         
@@ -35,6 +34,7 @@ def main(category):
             'price': price.strip(),
             'image': image.strip(),
             'description': description,
+            # TODO: Uncomment the lines below if you need tags and sku's
             # 'tag': tag.strip(),
             # 'sku': sku.strip()
         }
@@ -56,7 +56,7 @@ def main(category):
 
 
 if __name__ == '__main__':
-    # TODO ENTER CATEGORIES HERE
+    # TODO: ENTER CATEGORIES HERE
     category_list = ['list', 'of', 'categories']
 
     for category in category_list:

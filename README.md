@@ -1,5 +1,5 @@
 # Woocommerce Product Scraper
-This is a simple python program to scrape product info from a WordPress website (that uses Woocommerce).
+This is a simple Python program to scrape product info from a WordPress website (that uses Woocommerce).
 
 The program outputs the data in csv files named by category.
 
@@ -10,6 +10,6 @@ The program outputs the data in csv files named by category.
  - Comment / uncomment the lines of code where the data is fetched to only get the data that you need.
  - Run main.py.
 
-### Required Libraries
+### Requirements
 
- - requests_html | "pip install requests-html"
+ - requests_html | `pip install requests-html`
